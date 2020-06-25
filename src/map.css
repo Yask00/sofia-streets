@@ -1,9 +1,8 @@
 #mapid { 
-    height: calc(100vh - 44px); /* TODO: check header styles at the end */
+    height: 100vh;
     width: 100vw;
     z-index: 1;
 }
-
 
 /* map popup */
 

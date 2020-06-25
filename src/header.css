@@ -1,23 +1,67 @@
-#navbar {
-    overflow: hidden;
-    background-color: #333;
-    z-index: 2;
+nav {
+  overflow: hidden;
+  z-index: 2;
+  position: fixed;
+  top: calc(50vh - 97px);
+  right: 0;
+  min-width: 60px;
+  -webkit-box-shadow: 2px 0 10px 0 rgba(56, 140, 196, .15);
+  box-shadow: 2px 0 10px 0 rgba(56, 140, 196, .15);
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+nav a:nth-child(1) {
+  background-color: #ff0202;
+  border-bottom: 1px solid white;
+}
+
+nav a:hover {
+  cursor: pointer;
+}
+
+nav a:nth-child(2) {
+  background-color: #000;
+  border-bottom: 1px solid white;
+}
+
+nav a:nth-child(3) {
+  background-color: #00309b;
+}
+
+nav a svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+nav a:hover svg {
+  -webkit-animation: linkRotation 0.5s linear;
+  -moz-animation: linkRotation 0.5s linear;
+  animation: linkRotation 0.5s linear;
+}
+
+@-moz-keyframes linkRotation {
+  100% {
+    -moz-transform: rotate(360deg);
   }
-    
-  #navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
+}
+
+@-webkit-keyframes linkRotation {
+  100% {
+    -webkit-transform: rotate(360deg);
   }
-  
-  .content {
-    padding: 16px;
+}
+
+@keyframes linkRotation {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  
-  .sticky {
-    width: 100%;
-  }
-    
+}

@@ -1,6 +1,15 @@
+избор на фонт
+случайни предложения отстрани
 different marker colors for nearby streets/neighbours
 how to switch different subpages in index.html
 
+share on fb option
 linters and formatters(esp css)
 bootstrap or tailwind
 optimize webpack / bundle css
+----------------Social, incl in menu----------------
+facebook
+...
+----------------Ways to collect donations------------
+patreon
+...
