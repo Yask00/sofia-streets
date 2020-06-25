@@ -65,3 +65,24 @@ nav a:hover svg {
     transform: rotate(360deg);
   }
 }
+
+@media only screen and (max-width: 440px) {
+  nav {
+    bottom: 25px;
+    top: auto;
+    left: 10px;
+    right: auto;
+    min-width: auto;
+  }
+
+  nav a {
+    padding: 2px;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  nav {
+    bottom: 40px;
+  }
+}
+

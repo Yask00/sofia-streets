@@ -1,5 +1,7 @@
-избор на фонт
-случайни предложения отстрани
+click on suggestion functionality
+combine suggestion and marker as db(json)
+z0index of tooltiip 
+
 different marker colors for nearby streets/neighbours
 how to switch different subpages in index.html
 
@@ -7,7 +9,7 @@ share on fb option
 linters and formatters(esp css)
 bootstrap or tailwind
 optimize webpack / bundle css
-test stuff  with js disabled
+test stuff  with js disabled (fallback for the map if js disabled)
 ----------------Social, incl in menu----------------
 facebook
 ...

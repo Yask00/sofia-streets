@@ -1,5 +1,5 @@
 aside {
-    width: 300px;
+    flex: 0 0 300px;
     background-color: #fff;
     box-shadow: 5px 0px 20px 0px #888;
     z-index: 4;
@@ -38,10 +38,11 @@ aside h2 {
 }
 
 aside .random-places {
-    height: calc(100vh - 220px);
+    height: calc(100vh - 210px);
 }
 
 aside .random-places .random-place {
+    line-height: 1.25rem;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -61,3 +62,54 @@ aside .random-places .random-place:nth-of-type(even) {
 aside .random-places .random-place img:hover {
     cursor: pointer;
 }
+
+
+@media only screen and (max-width: 440px) {
+    aside header h1 {
+        color: transparent;
+    }
+    aside header h1 span {
+        color: initial;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    aside {
+        width: 100%;
+        box-shadow: none;
+        flex: 0 1 auto;
+    }
+
+    aside header {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        
+    }
+
+    aside header img {
+        width: 40px;
+        height: 50px;
+        margin: 0;
+    }
+
+    aside header h1 {
+        margin-left: 20px;
+        text-align: initial;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    aside .random-places, aside h2 {
+        display: none;
+    }
+
+    aside header {
+        padding: 10px;
+        border-bottom: none;
+        display: flex;
+    }
+}
+
