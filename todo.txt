@@ -7,6 +7,7 @@ share on fb option
 linters and formatters(esp css)
 bootstrap or tailwind
 optimize webpack / bundle css
+test stuff  with js disabled
 ----------------Social, incl in menu----------------
 facebook
 ...
