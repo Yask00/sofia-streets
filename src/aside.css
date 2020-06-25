@@ -15,8 +15,8 @@ aside header {
 aside header img {
     display: block;
     margin: 0 auto;
-    width: 100px;
-    height: 120px;
+    width: 75px;
+    height: 85px;
 }
 
 aside header h1 {
@@ -33,22 +33,31 @@ aside h2 {
     text-align: center;
     text-transform: uppercase;
     margin: 10px;
-    color: #378ce0;
+    color: #00309b;
     font-weight: 600;
 }
 
 aside .random-places {
-    height: calc(100vh - 260px);
+    height: calc(100vh - 220px);
 }
 
 aside .random-places .random-place {
     padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    color: white;
 }
 
 aside .random-places .random-place:nth-of-type(odd) {
-    background-color: #d8e8c8;
+    background: #474747;
 }
 
 aside .random-places .random-place:nth-of-type(even) {
-    background-color: #e5d7a0;
+    background-color: #f35454;
+}
+
+aside .random-places .random-place img:hover {
+    cursor: pointer;
 }
