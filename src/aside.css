@@ -2,7 +2,7 @@ aside {
     flex: 0 0 300px;
     background-color: #fff;
     box-shadow: 5px 0px 20px 0px #888;
-    z-index: 4;
+    z-index: 3;
     max-height: 100vh;
     overflow: hidden;
 }
@@ -32,13 +32,13 @@ aside header h1 span {
 aside h2 {
     text-align: center;
     text-transform: uppercase;
-    margin: 10px;
+    margin: 30px 0 10px;
     color: #00309b;
     font-weight: 600;
 }
 
 aside .random-places {
-    height: calc(100vh - 210px);
+    height: calc(100vh - 230px);
 }
 
 aside .random-places .random-place {
@@ -47,16 +47,8 @@ aside .random-places .random-place {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-weight: bold;
-    color: white;
-}
-
-aside .random-places .random-place:nth-of-type(odd) {
-    background: #474747;
-}
-
-aside .random-places .random-place:nth-of-type(even) {
-    background-color: #f35454;
+    box-shadow: 2px 2px 10px #e6e6e6;
+    color: #000;
 }
 
 aside .random-places .random-place img:hover {

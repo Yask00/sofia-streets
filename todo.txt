@@ -1,6 +1,6 @@
+z-index of tooltiip 
 click on suggestion functionality
 combine suggestion and marker as db(json)
-z0index of tooltiip 
 
 different marker colors for nearby streets/neighbours
 how to switch different subpages in index.html
