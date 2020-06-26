@@ -47,14 +47,19 @@ aside .random-places .random-place {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 2px 2px 10px #e6e6e6;
+    box-shadow: 2px 2px 5px #e6e6e6;
     color: #000;
 }
 
-aside .random-places .random-place img:hover {
+aside .random-places .random-place:hover {
+    background-color: #f5f5f5;
     cursor: pointer;
 }
 
+aside .random-places .random-place span, 
+aside .random-places .random-place img {
+    pointer-events: none;
+}
 
 @media only screen and (max-width: 440px) {
     aside header h1 {
