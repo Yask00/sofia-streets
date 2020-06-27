@@ -261,7 +261,24 @@ const db = [
   },
 ]
 
+// CONCATENATED MODULE: ./src/loader.js
+const loader = document.getElementsByClassName('loader-wrapper');
+
+// if (document.readyState === "complete" || document.readyState === "loaded" || document.readyState === "interactive") {
+//     loader[0].classList.add('hidden');
+// }
+
+function startLoader() {
+    loader[0].classList.remove('hidden');
+    console.log('startLoader');
+}
+
+function stopLoader() {
+    loader[0].classList.add('hidden');
+    console.log('stopLoader');
+}
 // CONCATENATED MODULE: ./src/markers/markers.js
+
 
 
 
@@ -305,22 +322,34 @@ let imageTemplate = document.createElement('img');
 imageTemplate.src = "./assets/img/play_circle_filled-24px.svg";
 imageTemplate.alt = "Go to randomly selected street";
 
-for (let i = 0; i < randomPlacesIndexes.length; i++) {
-    const listItem = itemTemplate.cloneNode(true);
-    listItem.setAttribute('data-lat', markersArr[randomPlacesIndexes[i]].lat);
-    listItem.setAttribute('data-lng', markersArr[randomPlacesIndexes[i]].lng);
+// TODO: loader on based which if slower markers or random places 
+startLoader();
 
-    const name = nameTemplate.cloneNode(true);
-    name.innerText = markersArr[randomPlacesIndexes[i]].name;
+const dynamicRandomPlacesPromise = new Promise((res, rej) => {
+    for (let i = 0; i < randomPlacesIndexes.length; i++) {
+        const listItem = itemTemplate.cloneNode(true);
+        listItem.setAttribute('data-lat', markersArr[randomPlacesIndexes[i]].lat);
+        listItem.setAttribute('data-lng', markersArr[randomPlacesIndexes[i]].lng);
+    
+        const name = nameTemplate.cloneNode(true);
+        name.innerText = markersArr[randomPlacesIndexes[i]].name;
+    
+        const image = imageTemplate.cloneNode(true);
+        listItem.appendChild(name);
+        listItem.appendChild(image);
+        fragment.appendChild(listItem);
+    }
+    
+    randomPlacesArray[0].appendChild(fragment);
+    randomPlacesArray[0].setAttribute('data-simplebar', '');
+    res();
+});
 
-    const image = imageTemplate.cloneNode(true);
-    listItem.appendChild(name);
-    listItem.appendChild(image);
-    fragment.appendChild(listItem);
-}
-
-randomPlacesArray[0].appendChild(fragment);
-randomPlacesArray[0].setAttribute('data-simplebar', '');
+dynamicRandomPlacesPromise.then(() => {
+    setTimeout(() => {
+        stopLoader();
+    }, 1000);
+});
 
 // Add event listener to 14 random places to locate them
 randomPlacesArray[0].addEventListener('click', function (e) {
@@ -345,7 +374,6 @@ function goToRandomPlace(lat, lng) {
         circle.remove()
     }, 2000);
 } 
-
 // CONCATENATED MODULE: ./src/app.js
 
 
