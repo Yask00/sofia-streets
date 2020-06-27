@@ -1,11 +1,12 @@
 import { mymap } from './map';
-import { geoMilev } from './neighbourhoods/markers';
-import { db } from './neighbourhoods/db';
+import { db } from './db';
 
 const markersArr = db;
 const markersLength = markersArr.length;
 let randomPlaces = [];
 let randomPlacesIndexes = [];
+
+
 
 // Create all markers
 for (let i = 0; i < markersLength; i++) {
@@ -15,7 +16,7 @@ for (let i = 0; i < markersLength; i++) {
 // Create indexes array for random places
 let randomPlacesLength = 0;
 while (randomPlacesLength < 14) {
-    let randomNum = generateRandomInt(0 , markersLength - 1);
+    let randomNum = generateRandomInt(0, markersLength - 1);
     if (!randomPlacesIndexes.includes(randomNum)) {
         randomPlacesIndexes.push(randomNum)
         randomPlaces.push(markersArr[randomNum]);
@@ -55,6 +56,7 @@ for (let i = 0; i < randomPlacesIndexes.length; i++) {
 }
 
 randomPlacesArray[0].appendChild(fragment);
+randomPlacesArray[0].setAttribute('data-simplebar', '');
 
 // Add event listener to 14 random places to locate them
 randomPlacesArray[0].addEventListener('click', function (e) {
@@ -66,4 +68,16 @@ randomPlacesArray[0].addEventListener('click', function (e) {
 
 function goToRandomPlace(lat, lng) {
     mymap.setView([lat, lng], 16);
+    // Create circle
+    var circle = L.circleMarker(mymap.getCenter(), {
+        radius: 20,
+        color: 'red',
+        weight: 1,
+        fillOpacity: 0.2,
+    }).addTo(mymap);
+    circle.setLatLng({lat:lat, lng:lng});
+
+    setTimeout(() => {
+        circle.remove()
+    }, 2000);
 } 

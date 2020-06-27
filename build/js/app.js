@@ -81,27 +81,18 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./src/neighbourhoods/markers.js
-var markers = __webpack_require__(0);
-
-// CONCATENATED MODULE: ./src/map.js
+// CONCATENATED MODULE: ./src/markers/map.js
 const mymap = L.map('mapid', {
     zoomControl: false
 }).setView([42.696567, 23.339886], 13);
@@ -121,7 +112,7 @@ function onMapClick(e) {
 }
 
 mymap.on('click', onMapClick);
-// CONCATENATED MODULE: ./src/neighbourhoods/db.js
+// CONCATENATED MODULE: ./src/markers/db.js
 const db = [
   // Geo Milev, Slatina, Reduta
   {
@@ -155,13 +146,13 @@ const db = [
     lng: "23.3606"
   },
   {
-    name: "ул. Nikolay Kkopernik",
+    name: "ул. Николай Коперник",
     info: "<b>Николай Коперник</b>, е полски математик и астроном от времето на Ренесанса. Той е първият Ренесансов учен, който предлага хелиоцентричната система като по този начин слага Слънцето вместо Земята в центъра на Вселената.",
     lat: "42.680472",
     lng: "23.36174"
   },
   {
-    name: "ул. Nikolay Kkopernik",
+    name: "ул. Николай Коперник",
     info: "<b>Николай Коперник</b>, е полски математик и астроном от времето на Ренесанса. Той е първият Ренесансов учен, който предлага хелиоцентричната система като по този начин слага Слънцето вместо Земята в центъра на Вселената.",
     lat: "42.682124",
     lng: "23.36253"
@@ -270,8 +261,7 @@ const db = [
   },
 ]
 
-// CONCATENATED MODULE: ./src/random-place.js
-
+// CONCATENATED MODULE: ./src/markers/markers.js
 
 
 
@@ -279,6 +269,8 @@ const markersArr = db;
 const markersLength = markersArr.length;
 let randomPlaces = [];
 let randomPlacesIndexes = [];
+
+
 
 // Create all markers
 for (let i = 0; i < markersLength; i++) {
@@ -288,7 +280,7 @@ for (let i = 0; i < markersLength; i++) {
 // Create indexes array for random places
 let randomPlacesLength = 0;
 while (randomPlacesLength < 14) {
-    let randomNum = generateRandomInt(0 , markersLength - 1);
+    let randomNum = generateRandomInt(0, markersLength - 1);
     if (!randomPlacesIndexes.includes(randomNum)) {
         randomPlacesIndexes.push(randomNum)
         randomPlaces.push(markersArr[randomNum]);
@@ -328,6 +320,7 @@ for (let i = 0; i < randomPlacesIndexes.length; i++) {
 }
 
 randomPlacesArray[0].appendChild(fragment);
+randomPlacesArray[0].setAttribute('data-simplebar', '');
 
 // Add event listener to 14 random places to locate them
 randomPlacesArray[0].addEventListener('click', function (e) {
@@ -339,11 +332,21 @@ randomPlacesArray[0].addEventListener('click', function (e) {
 
 function goToRandomPlace(lat, lng) {
     mymap.setView([lat, lng], 16);
+    // Create circle
+    var circle = L.circleMarker(mymap.getCenter(), {
+        radius: 20,
+        color: 'red',
+        weight: 1,
+        fillOpacity: 0.2,
+    }).addTo(mymap);
+    circle.setLatLng({lat:lat, lng:lng});
+
+    setTimeout(() => {
+        circle.remove()
+    }, 2000);
 } 
 
 // CONCATENATED MODULE: ./src/app.js
-// import { mymap } from './map.js';
-
 
 
 
