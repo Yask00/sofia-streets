@@ -4,6 +4,9 @@ module.exports = {
   entry: './src/app.js',
   output: {
       filename: 'app.js',
-      path: path.resolve(__dirname, 'build', 'js')
-  }
+      path: path.resolve(__dirname, 'build', 'js'),
+  },
+  optimization: {
+    minimize: false
+},
 };
