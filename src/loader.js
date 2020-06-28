@@ -6,10 +6,8 @@ const loader = document.getElementsByClassName('loader-wrapper');
 
 export function startLoader() {
     loader[0].classList.remove('hidden');
-    console.log('startLoader');
 }
 
 export function stopLoader() {
     loader[0].classList.add('hidden');
-    console.log('stopLoader');
 }

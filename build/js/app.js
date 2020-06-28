@@ -270,12 +270,10 @@ const loader = document.getElementsByClassName('loader-wrapper');
 
 function startLoader() {
     loader[0].classList.remove('hidden');
-    console.log('startLoader');
 }
 
 function stopLoader() {
     loader[0].classList.add('hidden');
-    console.log('stopLoader');
 }
 // CONCATENATED MODULE: ./src/markers/markers.js
 
@@ -319,11 +317,12 @@ let itemTemplate = document.createElement('li');
 itemTemplate.classList = "random-place";
 let nameTemplate = document.createElement('span');
 let imageTemplate = document.createElement('img');
+// TODO: shows slow n screen. replace with full url???
 imageTemplate.src = "./assets/img/play_circle_filled-24px.svg";
 imageTemplate.alt = "Go to randomly selected street";
 
 // TODO: loader on based which if slower markers or random places 
-startLoader();
+// startLoader();
 
 const dynamicRandomPlacesPromise = new Promise((res, rej) => {
     for (let i = 0; i < randomPlacesIndexes.length; i++) {

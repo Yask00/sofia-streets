@@ -1,13 +1,14 @@
+modal for info
 think about markers count and visibility based on zoom
-
+glitch on loader close for aside menu
 different marker colors for nearby streets/neighbours
-
-
 share on fb option
+
+
 linters and formatters(esp css)
 bootstrap or tailwind
 optimize webpack / bundle css
-test stuff  with js disabled (fallback for the map if js disabled)
+test stuff with js disabled (fallback for the map if js disabled)
 ----------------Social, incl in menu----------------
 facebook
 ...
