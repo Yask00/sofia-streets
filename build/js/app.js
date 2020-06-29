@@ -292,21 +292,21 @@ const db = [
   },
   {
     name: "ул. Манастирска",
-    info: "<b>ул. Манастирска</b> - нямаме конкретна иформация за произхода на името на тази улица",
+    info: "<b>ул. Манастирска</b> - нямаме конкретна иформация за произхода или значението на името на тази улица",
     lat: "42.68648",
     lng: "23.356665",
     empty: true
   },
   {
     name: "ул. Манастирска",
-    info: "<b>ул. Манастирска</b> - нямаме конкретна иформация за произхода на името на тази улица",
+    info: "<b>ул. Манастирска</b> - нямаме конкретна иформация за произхода или значението на името на тази улица",
     lat: "42.68371",
     lng: "23.366032",
     empty: true
   },
   { 
     name: "ул. Манастирска",
-    info: "<b>ул. Манастирска</b> - нямаме конкретна иформация за произхода на името на тази улица",
+    info: "<b>ул. Манастирска</b> - нямаме конкретна иформация за произхода или значението на името на тази улица",
     lat: "42.68492",
     lng: "23.361992",
     empty: true
@@ -356,13 +356,43 @@ var redIcon = new L.Icon({
 });
 
 // Create all markers
-for (let i = 0; i < markersLength; i++) {
-    if(markersArr[i].empty) {
-        L.marker([markersArr[i].lat, markersArr[i].lng], {icon: redIcon}).addTo(mymap).bindPopup(markersArr[i].info);
+var markersLayerGroup;
+function createMarkers(northEastLat, northEastLng, southWestLat, southWestLng) {
+    if (!markersLayerGroup) {
+        markersLayerGroup = L.layerGroup().addTo(mymap);
     } else {
-        L.marker([markersArr[i].lat, markersArr[i].lng], {icon: blueIcon}).addTo(mymap).bindPopup(markersArr[i].info);
+        markersLayerGroup.clearLayers();
+    }
+
+    if (typeof northEastLat === 'undefined' ||
+        typeof northEastLng === 'undefined' ||
+        typeof southWestLat === 'undefined' ||
+        typeof southWestLng === 'undefined') {
+        // detect boundaries and create markers
+        const mapBounds = mymap.getBounds();
+        createMarkers(mapBounds._northEast.lat, mapBounds._northEast.lng, mapBounds._southWest.lat, mapBounds._southWest.lng)
+    } else {
+        for (let i = 0; i < markersLength; i++) {
+            if (markersArr[i].lat < northEastLat &&
+                markersArr[i].lng < northEastLng &&
+                markersArr[i].lat > southWestLat &&
+                markersArr[i].lng > southWestLng
+            ) {
+                if (markersArr[i].empty) {
+                    var marker = L.marker([markersArr[i].lat, markersArr[i].lng], { icon: redIcon }).bindPopup(markersArr[i].info);
+                    markersLayerGroup.addLayer(marker);
+                } else {
+                    var marker = L.marker([markersArr[i].lat, markersArr[i].lng], { icon: blueIcon }).bindPopup(markersArr[i].info);
+                    markersLayerGroup.addLayer(marker);
+                }
+            }
+        }
+        // side menu with created layers 
+        // var overlay = {'markers': markersLayerGroup};
+        // L.control.layers(null, overlay).addTo(mymap);
     }
 }
+createMarkers();
 
 // Create indexes array for random places
 let randomPlacesLength = 0;
@@ -445,7 +475,13 @@ function goToRandomPlace(lat, lng) {
     setTimeout(() => {
         circle.remove()
     }, 2000);
-} 
+}
+
+// ReCreate markers on zoom in/out
+mymap.on('moveend', function (e) {
+    const mapBounds = mymap.getBounds();
+    createMarkers(mapBounds._northEast.lat, mapBounds._northEast.lng, mapBounds._southWest.lat, mapBounds._southWest.lng);
+});
 // EXTERNAL MODULE: ./src/modal.js
 var modal = __webpack_require__(1);
 

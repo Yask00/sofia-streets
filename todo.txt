@@ -1,5 +1,3 @@
-think about markers count and visibility based on zoom
-
 favicon
 google analytics
 
