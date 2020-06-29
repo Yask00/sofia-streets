@@ -7,11 +7,31 @@ const markersLength = markersArr.length;
 let randomPlaces = [];
 let randomPlacesIndexes = [];
 
+var blueIcon = new L.Icon({
+    iconUrl: '../../assets/css/images/marker-icon.png',
+    shadowUrl: '../../assets/css/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
 
+var redIcon = new L.Icon({
+    iconUrl: '../../assets/css/images/marker-icon-red.png',
+    shadowUrl: '../../assets/css/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
 
 // Create all markers
 for (let i = 0; i < markersLength; i++) {
-    L.marker([markersArr[i].lat, markersArr[i].lng]).addTo(mymap).bindPopup(markersArr[i].info);
+    if(markersArr[i].empty) {
+        L.marker([markersArr[i].lat, markersArr[i].lng], {icon: redIcon}).addTo(mymap).bindPopup(markersArr[i].info);
+    } else {
+        L.marker([markersArr[i].lat, markersArr[i].lng], {icon: blueIcon}).addTo(mymap).bindPopup(markersArr[i].info);
+    }
 }
 
 // Create indexes array for random places
@@ -39,7 +59,7 @@ let itemTemplate = document.createElement('li');
 itemTemplate.classList = "random-place";
 let nameTemplate = document.createElement('span');
 let imageTemplate = document.createElement('img');
-// TODO: shows slow n screen. replace with full url???
+// TODO: shows slow in screen. replace with full url???
 imageTemplate.src = "./assets/img/play_circle_filled-24px.svg";
 imageTemplate.alt = "Go to randomly selected street";
 

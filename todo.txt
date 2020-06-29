@@ -1,10 +1,9 @@
-message for not known source with red marker and message
 favicon
 
+what should map icon on right nav do
 think about markers count and visibility based on zoom
 
 in the future can add wc markers, other markers... with FILTERS
-in the future share on fb option
 
 linters and formatters(esp css)
 bootstrap or tailwind
@@ -15,6 +14,4 @@ facebook
 ...
 ----------------Ways to collect donations------------
 patreon
-...
-
---------------Презентация----------------------
+buy me a cofee
