@@ -1,9 +1,10 @@
-modal for info
-think about markers count and visibility based on zoom
-glitch on loader close for aside menu
-different marker colors for nearby streets/neighbours
-share on fb option
+message for not known source with red marker and message
+favicon
 
+think about markers count and visibility based on zoom
+
+in the future can add wc markers, other markers... with FILTERS
+in the future share on fb option
 
 linters and formatters(esp css)
 bootstrap or tailwind
@@ -17,9 +18,3 @@ patreon
 ...
 
 --------------Презентация----------------------
-За малки и за големи, но най-вече любопитни. Този проект предоставя
-знание за значението на имената на софийските улици. 
-Информацията, която дава, не гарантира пълна коректност и обхват.
-Ако имате препоръки, предложения за промяна на съдържанието или искате да ни оставите
-обратна връзка, моля вижте таба за контакт. Този проект е напълно безплатен,
-но ако искате да ни подпомогнете, моля посетете таба подкрепа. Благодарим ви!

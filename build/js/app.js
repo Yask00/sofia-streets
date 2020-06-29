@@ -329,16 +329,16 @@ const dynamicRandomPlacesPromise = new Promise((res, rej) => {
         const listItem = itemTemplate.cloneNode(true);
         listItem.setAttribute('data-lat', markersArr[randomPlacesIndexes[i]].lat);
         listItem.setAttribute('data-lng', markersArr[randomPlacesIndexes[i]].lng);
-    
+
         const name = nameTemplate.cloneNode(true);
         name.innerText = markersArr[randomPlacesIndexes[i]].name;
-    
+
         const image = imageTemplate.cloneNode(true);
         listItem.appendChild(name);
         listItem.appendChild(image);
         fragment.appendChild(listItem);
     }
-    
+
     randomPlacesArray[0].appendChild(fragment);
     randomPlacesArray[0].setAttribute('data-simplebar', '');
     res();
@@ -354,8 +354,9 @@ dynamicRandomPlacesPromise.then(() => {
 randomPlacesArray[0].addEventListener('click', function (e) {
     const lat = e.target.getAttribute("data-lat");
     const lng = e.target.getAttribute("data-lng");
-
-    goToRandomPlace(lat, lng);
+    if (lat && lng) {
+        goToRandomPlace(lat, lng);
+    }
 });
 
 function goToRandomPlace(lat, lng) {
@@ -367,18 +368,51 @@ function goToRandomPlace(lat, lng) {
         weight: 1,
         fillOpacity: 0.2,
     }).addTo(mymap);
-    circle.setLatLng({lat:lat, lng:lng});
+    circle.setLatLng({ lat: lat, lng: lng });
 
     setTimeout(() => {
         circle.remove()
     }, 2000);
 } 
+// EXTERNAL MODULE: ./src/modal.js
+var modal = __webpack_require__(1);
+
 // CONCATENATED MODULE: ./src/app.js
 
 
 
 
 
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function () {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
 /***/ })
 /******/ ]);

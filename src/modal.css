@@ -1,0 +1,186 @@
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 4;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 80%;
+    height: 75%;
+    position: relative;
+}
+
+.modal-content .info-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    height: 100%;
+}
+
+.modal-content .simplebar-content {
+    height: 100%;
+}
+
+.modal-content .info-wrapper .contact, .modal-content .info-wrapper .info, .modal-content .info-wrapper .support, .modal-content .info-wrapper .future {
+    flex: 0 1 50%;
+    color: #000;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.modal-content .info-wrapper .contact svg, .modal-content .info-wrapper .info svg, .modal-content .info-wrapper .support svg, .modal-content .info-wrapper .future svg {
+    width: 75px;
+    height: 75px;
+    fill: #5b6aa6;
+}
+
+.modal-content .info-wrapper .contact h3, .modal-content .info-wrapper .info h3, .modal-content .info-wrapper .support h3, .modal-content .info-wrapper .future h3 {
+    text-transform: uppercase;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #001c5a;
+    font-size: 1.5rem;
+}
+
+.modal-content .info-wrapper .contact {
+    background-color: #fff;
+}
+
+.modal-content .info-wrapper .info {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.modal-content .info-wrapper .support {
+    background-color: #fff;
+}
+
+.modal-content .info-wrapper .future {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.modal-content .info-wrapper .info p, .modal-content .info-wrapper .contact p, .modal-content .info-wrapper .support p {
+    text-align: center;
+    line-height: 1.25rem;
+}
+
+.modal-content .info-wrapper .contact .mail-link, .modal-content .info-wrapper .support .mail-link, .modal-content .info-wrapper .contact .facebook-link, .modal-content .info-wrapper .support .facebook-link, .modal-content .info-wrapper .contact .cofee-link, .modal-content .info-wrapper .support .cofee-link, .modal-content .info-wrapper .contact .patreon-link, .modal-content .info-wrapper .support .patreon-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 10px;
+    display: block;
+    font-weight: bold;
+    margin: 5px 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.modal-content .info-wrapper .contact .mail-link:hover , 
+.modal-content .info-wrapper .support .mail-link:hover , 
+.modal-content .info-wrapper .contact .facebook-link:hover , 
+.modal-content .info-wrapper .support .facebook-link:hover , 
+.modal-content .info-wrapper .contact .cofee-link:hover , 
+.modal-content .info-wrapper .support .cofee-link:hover , 
+.modal-content .info-wrapper .contact .patreon-link:hover , 
+.modal-content .info-wrapper .support .patreon-link:hover  {
+    box-shadow: 3px 3px 5px #d5d5d5;
+    color: #ff691a;
+}
+
+.modal-content .info-wrapper .contact .mail-link, .modal-content .info-wrapper .support .mail-link {
+    background-color: #000;
+}
+
+.modal-content .info-wrapper .contact .facebook-link, .modal-content .info-wrapper .support .facebook-link {
+    background-color: #001749;
+}
+
+.modal-content .info-wrapper .contact .cofee-link, .modal-content .info-wrapper .support .cofee-link {
+    background-color: #230a42;
+}
+
+.modal-content .info-wrapper .contact .patreon-link, .modal-content .info-wrapper .support .patreon-link {
+    background-color: #534746;
+}
+
+.modal-content .info-wrapper .future li {
+    margin: 5px 0;
+    line-height: 1.25rem;
+}
+
+.modal-content .info-wrapper .future ul {
+    margin-left: 20px;
+}
+
+/* The Close Button */
+
+.close {
+    color: #aaaaaa;
+    position: absolute;
+    top: 0;
+    right: 8px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 440px) {
+    .modal {
+        padding-top: 5%;
+    }
+    .modal-content {
+        width: 90%;
+        height: 95%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .modal-content .info-wrapper .contact, .modal-content .info-wrapper .info, .modal-content .info-wrapper .support, .modal-content .info-wrapper .future {
+        flex: 0 1 100%;
+        height: auto;
+        justify-content: center;
+    }
+    .modal-content .info-wrapper .support {
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+    .modal-content .info-wrapper .future {
+        background-color: #fff;
+    }
+    .modal-content .info-wrapper .contact .mail-link, .modal-content .info-wrapper .support .mail-link, .modal-content .info-wrapper .contact .facebook-link, .modal-content .info-wrapper .support .facebook-link, .modal-content .info-wrapper .contact .cofee-link, .modal-content .info-wrapper .support .cofee-link, .modal-content .info-wrapper .contact .patreon-link, .modal-content .info-wrapper .support .patreon-link {
+        text-transform: none;
+    }
+}
