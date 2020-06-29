@@ -1,7 +1,7 @@
-favicon
-
-what should map icon on right nav do
 think about markers count and visibility based on zoom
+
+favicon
+google analytics
 
 in the future can add wc markers, other markers... with FILTERS
 
@@ -11,7 +11,6 @@ optimize webpack / bundle css
 test stuff with js disabled (fallback for the map if js disabled)
 ----------------Social, incl in menu----------------
 facebook
-...
 ----------------Ways to collect donations------------
 patreon
 buy me a cofee

@@ -12,6 +12,13 @@ L.control.zoom({
     position: 'bottomright'
 }).addTo(mymap);
 
+const homeNavLink = document.getElementById('home');
+homeNavLink.addEventListener('click', setMapInitialView);
+
+function setMapInitialView() {
+    mymap.setView([42.696567, 23.339886], 13);
+}
+
 function onMapClick(e) {
     console.log("You clicked the map at " + e.latlng);
 }
