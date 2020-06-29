@@ -1,6 +1,6 @@
-favicon
 google analytics
 
+before upload or after change relative urls with full url??
 in the future can add wc markers, other markers... with FILTERS
 
 linters and formatters(esp css)
